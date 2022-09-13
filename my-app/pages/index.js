@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Web3Modal from "web3modal";
 import { abi, NFT_CONTRACT_ADDRESS } from "../constants";
 import styles from "../styles/Home.module.css";
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -21,6 +22,8 @@ export default function Home() {
   const [tokenIdsMinted, setTokenIdsMinted] = useState("0");
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
+
+
 
   const presaleMint = async () => {
     try {
@@ -87,6 +90,7 @@ export default function Home() {
       console.error(err);
     }
   };
+  
 
   /**
    * startPresale: starts the presale for the NFT Collection
@@ -343,7 +347,23 @@ export default function Home() {
           {renderButton()}
         </div>
         <div>
-          <img className={styles.image} src="./cryptodevs/0.svg" alt="cryptodevs"/>
+          {/* <img className={styles.image} src="./cryptodevs/0.svg" alt="cryptodevs"/>
+          <Image className={styles.image} src={"./cryptodevs/0.svg"}/> */}
+
+          <div style={{width: '50%', height: '50%' }}>
+  <Image
+    alt='CryptoDevs'
+    src='/cryptodevs/0.svg'
+    layout='fill'
+    objectFit='contain'
+    objectPosition="right"
+    
+  />
+</div>
+
+
+
+
         </div>
       </div>
 
