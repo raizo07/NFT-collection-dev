@@ -265,7 +265,7 @@ export default function Home() {
         await getTokenIdsMinted();
       }, 5 * 1000);
     }
-  }, [walletConnected]);
+  }, [walletConnected]); // eslint-disable-line react-hooks/exhaustive-deps
 
   /*
       renderButton: Returns a button based on the state of the dapp
