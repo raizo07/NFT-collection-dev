@@ -356,9 +356,7 @@ export default function Home() {
     src='/cryptodevs/0.svg'
     layout='fill'
     objectFit='contain'
-    objectPosition="right"
-    
-  />
+    objectPosition="right"/>
 </div>
 
 
