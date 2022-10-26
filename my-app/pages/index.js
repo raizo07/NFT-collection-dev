@@ -347,8 +347,8 @@ export default function Home() {
           {renderButton()}
         </div>
         <div>
-          {/* <img className={styles.image} src="./cryptodevs/0.svg" alt="cryptodevs"/>
-          <Image className={styles.image} src={"./cryptodevs/0.svg"}/> */}
+           {/* <img className={styles.image} src="./cryptodevs/0.svg" alt="cryptodevs"/>
+          <Image className={styles.image} src={"./cryptodevs/0.svg"}/>  */}
 
           <div style={{width: '50%', height: '50%' }}>
   <Image
@@ -360,8 +360,6 @@ export default function Home() {
     
   />
 </div>
-
-
 
 
         </div>
