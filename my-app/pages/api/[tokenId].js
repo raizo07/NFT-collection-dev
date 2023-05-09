@@ -9,16 +9,11 @@
 export default function handler(req, res) {
   const tokenId = req.query.tokenId;
  
-  const name = `Crypto Dev #$(tokenId)`;
-  const description = "CryptDevs is an NFT Collection for Web3 Developers";
-  const image = `https://raw.githubusercontent.com/raizo07/NFT-collection-dev/main/my-app/public/cryptodevs/${
-    Number(tokenId) - 1
-  }.svg`;
+  const image_url = "https://raw.githubusercontent.com/LearnWeb3DAO/NFT-Collection/main/my-app/public/cryptodevs/";
 
-  return res.json({
-    name: name,
-    description: description,
-    image: image,
+  res.status(200).json({
+    name: "Crypto Dev #" + tokenId,
+    description: "Crypto Dev is a collection of developers in crypto",
+    image: image_url + tokenId + ".svg",
   });
-
 }
