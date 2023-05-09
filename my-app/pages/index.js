@@ -199,6 +199,7 @@ export default function Home() {
    */
   const getTokenIdsMinted = async () => {
     try {
+      const provider = await getProviderOrSigner();
       const nftContract = new Contract(NFT_CONTRACT_ADDRESS, abi, provider);
       // call the tokenIds from the contract
       const _tokenIds = await nftContract.tokenIds();
@@ -214,11 +215,11 @@ export default function Home() {
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
 
-    // If user is not connected to the Rinkeby network, let them know and throw an error
+    // If user is not connected to the sepolia network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 4) {
-      window.alert("Change the network to Rinkeby");
-      throw new Error("Change network to Rinkeby");
+    if (chainId !== 11155111) {
+      window.alert("Change the network to sepolia");
+      throw new Error("Change network to sepolia");
     }
 
     if (needSigner) {
@@ -235,7 +236,7 @@ export default function Home() {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
+        network: "sepolia",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -339,7 +340,7 @@ export default function Home() {
         <div>
           <h1 className={styles.title}>Welcome to Crypto Devs!</h1>
           <div className={styles.description}>
-            Its an NFT collection for developers in Crypto.
+            It's an NFT collection for developers in Crypto.
           </div>
           <div className={styles.description}>
             {tokenIdsMinted}/20 have been minted
@@ -347,24 +348,12 @@ export default function Home() {
           {renderButton()}
         </div>
         <div>
-           {/* <img className={styles.image} src="./cryptodevs/0.svg" alt="cryptodevs"/>
-          <Image className={styles.image} src={"./cryptodevs/0.svg"}/>  */}
-
-          <div style={{width: '50%', height: '50%' }}>
-  <Image
-    alt='CryptoDevs'
-    src='/cryptodevs/0.svg'
-    layout='fill'
-    objectFit='contain'
-    objectPosition="right"/>
-</div>
-
-
+          <img className={styles.image} src="./cryptodevs/0.svg" />
         </div>
       </div>
 
       <footer className={styles.footer}>
-        Made with &#10084; by Agada Gabriel
+        Made with &#10084; by Gabriel
       </footer>
     </div>
   );

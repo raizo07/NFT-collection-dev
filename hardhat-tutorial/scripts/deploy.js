@@ -19,6 +19,9 @@ async function main() {
     whitelistContract
   );
 
+  // wait fot it to finish deploying
+  await deployedCryptoDevsContract.deployed();
+
   // print the address of the deployed contract
   console.log(
     "Crypto Devs Contract Address:",
